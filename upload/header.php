@@ -1,6 +1,6 @@
 <?php
     require_once 'config.php';
-    $logedin = new Users();
+    $myUser = new Users();
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,15 +24,16 @@
                 <a class="brand" href="index.php"><?php echo $scriptName; ?></a>
                 <ul class="nav">
                     <li><a href="index.php"><i class="icon-home"></i> Home</a></li>
-                    <?php if ($logedin->LogedinBool()) { ?>
+                    <li><a href="ping.php"><i class="icon-signal"></i> Ping</a></li>
+                    <?php if ($myUser->LogedinBool()) { ?>
                     <li><a href="host.php"><i class="icon-plus-sign"></i> Add Host</a></li> <?php } ?>
-                    <?php if ($logedin->LogedinBool()) { ?>
+                    <?php if ($myUser->LogedinBool()) { ?>
                     <li><a href="settings.php"><i class="icon-wrench"></i> Settings</a></li> <?php } ?>
-                    <?php if (!$logedin->LogedinBool()) { ?>
+                    <?php if (!$myUser->LogedinBool()) { ?>
                     <li><a href="register.php"><i class="icon-user"></i> Register</a></li> <?php } ?>
-                    <?php if (!$logedin->LogedinBool()) { ?>
+                    <?php if (!$myUser->LogedinBool()) { ?>
                     <li><a href="login.php"><i class="icon-check"></i> Login</a></li> <?php } ?>
-                    <?php if ($logedin->LogedinBool()) { ?>
+                    <?php if ($myUser->LogedinBool()) { ?>
                     <li><a href="logout.php"><i class="icon-share"></i> Logout</a></li> <?php } ?>
                 </ul>
             </div>

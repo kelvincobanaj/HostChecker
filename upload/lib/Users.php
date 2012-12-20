@@ -52,7 +52,7 @@
          * @param $user
          * @return bool
          */
-        public function checkUsername($user)
+        private function checkUsername($user)
         {
             $string = "SELECT * FROM users WHERE username='" . $user . "' ";
             $result = mysql_query($string);
@@ -69,7 +69,7 @@
          * @param $pass2
          * @return bool
          */
-        public function checkPassRepetition($pass1, $pass2)
+        private function checkPassRepetition($pass1, $pass2)
         {
             if ($pass1 != $pass2) {
                 return true;
@@ -83,7 +83,7 @@
          * @param $email
          * @return bool
          */
-        public function checkEmail($email)
+        private function checkEmail($email)
         {
             if (!preg_match("/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/", $email)) {
                 return true;
@@ -125,7 +125,6 @@
                 $_SESSION[logedin] = true;
                 return true;
             } else {
-                $_SESSION[logedin] = false;
                 return false;
             }
 
@@ -283,6 +282,7 @@
                             <th>Domain or IP</th>
                             <th>Port</th>
                             <th>Status</th>
+                            <th>Ping</th>
                             <th>Delete</th>
                         </tr>
                         </thead>";
@@ -292,7 +292,8 @@
                     echo "<td>" . $row['host'] . "</td>";
                     echo "<td>" . $row['port'] . "</td>";
                     echo Check::checkServer($row['host'], $row['port']) ? "<td style=\"text-align: center;\"><i class=\"icon-ok\"></i></td>" : "<td style=\"text-align: center;\"><i class=\"icon-remove\"></i></td>";
-                    echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini \" onclick=\"deleteFunction(" . $row['id'] . ")\"><i class=\"icon-remove-sign\"></i> Delete</a></td>";
+                    echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini btn-info \" href=\"ping.php?host=".$row['host']."&port=".$row['port']."&count=4\"><i class=\"icon-signal\"></i> Ping</a></td>";
+                    echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini \" onclick=\"deleteFunction(" . $row['id'] . ")\"><i style=\"margin-top: 1px;\" class=\"icon-remove-circle\"></i></a></td>";
                     echo "</tr>";
                 }
                 echo "</table>";

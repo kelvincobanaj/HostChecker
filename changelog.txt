@@ -1,0 +1,7 @@
+== Version 1.1 ==
+* Ping Host
+
+== Version 1.0 ==
+* Registration
+* Host Checker
+* Add/Remove Host

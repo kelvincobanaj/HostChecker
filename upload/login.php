@@ -1,7 +1,7 @@
 <?php
     require_once 'header.php';
 
-    $login = new Users();
+    $myUser->isLogedin();
 
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
@@ -9,8 +9,8 @@
 
         if (isset($username) && !empty($username)) {
             if (isset($password) && !empty($password)) {
-                if ($login->userLogin($username, $password)) {
-                    Main::setMessage("index.php", "Welcome in Hostchecker", "alert-success");
+                if ($myUser->userLogin($username, $password)) {
+                    Main::setMessage("index.php", "Welcome in ". $scriptName, "alert-success");
                 } else {
                     Main::setMessage("login.php", "Please try to login again!", "alert-error");
                 }
@@ -37,7 +37,7 @@
     </div>
     <div class="control-group">
         <div class="controls">
-            <button type="submit" name="submit" class="btn">Sign in</button>
+            <button type="submit" name="submit" class="btn">Login</button>
         </div>
     </div>
 </form>

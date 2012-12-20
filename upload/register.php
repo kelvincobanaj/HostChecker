@@ -1,7 +1,6 @@
 <?php require_once 'header.php';
 
-    $register = new Users();
-    $register->isLogedin();
+    $myUser->isLogedin();
 
     if (isset($_POST['submit'])) {
 
@@ -17,7 +16,7 @@
                 if (isset($username) && !empty($username)) {
                     if ((isset($password) && isset($passrep)) && (!empty($password) && !empty($passrep))) {
                         if (isset($email) && !empty($email)) {
-                            $register->userRegister($username, $password, $passrep, $email, $name, $lastname);
+                            $myUser->userRegister($username, $password, $passrep, $email, $name, $lastname);
                         } else {
                             Main::setMessage("register.php", "The email filed is empty!", "alert-error");
                         }

@@ -4,7 +4,7 @@ Email: sadiqevani@dot.al
 Website: www.sadiqevani.com
 
 Name: HostChecker
-Version: 1.0
+Version: 1.1
 
 == Description ==
 

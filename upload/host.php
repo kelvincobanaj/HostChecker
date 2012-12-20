@@ -1,8 +1,7 @@
 <?php
     require_once 'header.php';
 
-    $host = new Users();
-    $host->notLogedin();
+    $myUser->notLogedin();
 
     if (isset($_POST['addhost'])) {
 
@@ -15,7 +14,7 @@
         if (isset($hostname) && !empty($hostname)) {
             if (isset($domainorip) && !empty($domainorip)) {
                 if (isset($port) && !empty($port)) {
-                    $host->addHost($userid, $hostname, $domainorip, $port, $ispublic);
+                    $myUser->addHost($userid, $hostname, $domainorip, $port, $ispublic);
                 } else {
                     Main::setMessage("host.php", "Please make sure you have inputted the correct port number!", "alert-error");
                 }
