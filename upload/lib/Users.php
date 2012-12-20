@@ -257,9 +257,9 @@
                         </thead>";
                 while ($row = mysql_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>" . $row['hostname'] . "</td>";
-                    echo "<td>" . $row['host'] . "</td>";
-                    echo "<td>" . $row['port'] . "</td>";
+                    echo "<td>" . htmlspecialchars($row['hostname']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['host']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['port']) . "</td>";
                     echo Check::checkServer($row['host'], $row['port']) ? "<td style=\"text-align: center;\"><i class=\"icon-ok\"></i></td>" : "<td style=\"text-align: center;\"><i class=\"icon-remove\"></i></td>";
                     echo "</tr>";
                 }
@@ -288,9 +288,9 @@
                         </thead>";
                 while ($row = mysql_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>" . $row['hostname'] . "</td>";
-                    echo "<td>" . $row['host'] . "</td>";
-                    echo "<td>" . $row['port'] . "</td>";
+                    echo "<td>" . htmlspecialchars($row['hostname']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['host']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['port']) . "</td>";
                     echo Check::checkServer($row['host'], $row['port']) ? "<td style=\"text-align: center;\"><i class=\"icon-ok\"></i></td>" : "<td style=\"text-align: center;\"><i class=\"icon-remove\"></i></td>";
                     echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini btn-info \" href=\"ping.php?host=".$row['host']."&port=".$row['port']."&count=4\"><i class=\"icon-signal\"></i> Ping</a></td>";
                     echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini \" onclick=\"deleteFunction(" . $row['id'] . ")\"><i style=\"margin-top: 1px;\" class=\"icon-remove-circle\"></i></a></td>";
