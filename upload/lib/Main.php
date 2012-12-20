@@ -55,9 +55,9 @@
         {
             if (isset($_REQUEST['msg'])) {
                 if (!empty($_REQUEST['status'])) {
-                    return '<div class="alert ' . $_REQUEST['status'] . '">' . $_REQUEST['msg'] . '</div>';
+                    return '<div class="alert ' . htmlspecialchars($_REQUEST['status']) . '">' . $_REQUEST['msg'] . '</div>';
                 } else {
-                    return '<div class="alert">' . $_REQUEST['msg'] . '</div>';
+                    return '<div class="alert">' . htmlspecialchars($_REQUEST['msg']) . '</div>';
                 }
             }
         }
