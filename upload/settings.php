@@ -46,6 +46,7 @@
 
 
 ?>
+<div class="row">
 <div class="span4 pull-left">
     <h2>Password Update</h2>
 
@@ -111,6 +112,7 @@
         </div>
 
     </form>
+</div>
 </div>
 
 
