@@ -8,7 +8,7 @@ Version: 1.0
 
 == Description ==
 
-Servermonitor is a script that helps you monitor your servers and services whether they are online or not. 
+HostChecker is a script that helps you monitor your servers and services whether they are online or not. 
 You can add a unlimited amount of hosts or ip to monitor and directly check them or a cronjob will check the services 
 for you and you will receive an email if one of your hosts is down.
 
