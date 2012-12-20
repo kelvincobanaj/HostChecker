@@ -1,6 +1,6 @@
 <hr />
     <p >
-        <a href="www.sadiqevani.com">Builded by Sadi</a>
+        <a href="http://www.sadiqevani.com">Builded by Sadi</a>
     </p>
 </div>
 </div>
