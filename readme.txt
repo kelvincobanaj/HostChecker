@@ -25,3 +25,5 @@ Please follow the steps below:
 3. Go to phpmyadmin and import the datas from the folder sql to the database
 
 4. Visit the website and you are ready to go. If you need further help do not hesitate to contact me.
+
+5. Add the file cron.php to the cronjob each X minutes you want but i suggest something like 10 or 15 minutes.
