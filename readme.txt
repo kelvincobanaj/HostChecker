@@ -2,6 +2,7 @@
 Author: Sadi Qevani
 Email: sadiqevani@dot.al
 Website: www.sadiqevani.com
+Demo: www.sadiqevani.com/hostchecker/
 
 Name: HostChecker
 Version: 1.1
