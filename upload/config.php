@@ -10,25 +10,33 @@
      */
     $scriptName = "HostChecker"; // The name of the script
 
-    $extraDirectory = "HostChecker"; // The subdirectory
-
     /**
      * A specific variable if the script will be used in inner folder
      * keep it empty if the script is in the public_html folder
      */
-    define('LIB_PATH', ($extraDirectory != "") ? $_SERVER['DOCUMENT_ROOT']. "/" . $extraDirectory . "/lib/" : $_SERVER['DOCUMENT_ROOT'] . "lib/" );
+    define('LIB_PATH', "lib/" );
 
     /**
      * The following files are to be included in the main script
+     *
+     *   require_once LIB_PATH . 'Main.php';
+     *   require_once LIB_PATH . 'Database.php';
+     *   require_once LIB_PATH . 'Users.php';
+     *   require_once LIB_PATH . 'Check.php';
+     *   require_once LIB_PATH . 'admin.php';
      */
-    require_once LIB_PATH . 'Main.php';
-    require_once LIB_PATH . 'Database.php';
-    require_once LIB_PATH . 'Users.php';
-    require_once LIB_PATH . 'Check.php';
+    function class_autoload($class) {
+        require_once LIB_PATH . $class . '.php';
+    }
+
+    spl_autoload_register('class_autoload');
 
     /**
      * Instantiating the database with its default values
      */
-    $db = new Database("localhost", "hostchecker", "sadi", "30121992");
-    $db->connect() or die("Database could not connect: " . mysql_error());
+    $db = new Database("localhost", "database", "user", "password");
+    $db->connect() or die("Database could not connect");
+
+
+
 
