@@ -4,7 +4,7 @@
     {
 
         /**
-         * This function is the registration function which allows the system to register its users online
+         * User registration function, when is runned it will register the user into the database
          *
          * @param $username
          * @param $password
@@ -12,6 +12,7 @@
          * @param $email
          * @param $name
          * @param $lastname
+         *
          * @return redict
          */
         public function userRegister($username, $password, $passrep, $email, $name, $lastname)
@@ -49,7 +50,10 @@
         }
 
         /**
+         * It will check if a X username exists in the database
+         *
          * @param $user
+         *
          * @return bool
          */
         private function checkUsername($user)
@@ -65,8 +69,11 @@
         }
 
         /**
+         * It will check if the first password is equal to the second pass
+         *
          * @param $pass1
          * @param $pass2
+         *
          * @return bool
          */
         private function checkPassRepetition($pass1, $pass2)
@@ -80,7 +87,10 @@
         }
 
         /**
+         * It will check if the email is a valid email
+         *
          * @param $email
+         *
          * @return bool
          */
         private function checkEmail($email)
@@ -93,7 +103,10 @@
         }
 
         /**
+         * It will escape bad datas for mysql
+         *
          * @param $data
+         *
          * @return string
          */
         public function dataEscape($data)
@@ -102,8 +115,11 @@
         }
 
         /**
+         * It will login the user and created a session variable with value true
+         *
          * @param $username
          * @param $password
+         *
          * @return bool
          */
         public function userLogin($username, $password)
@@ -131,7 +147,7 @@
         }
 
         /**
-         *
+         * It will check if an user is logged and redict to Index if its true
          */
         public function isLogedin()
         {
@@ -141,7 +157,7 @@
         }
 
         /**
-         *
+         * It will check if a user is not logged in and it will redict to index if its true
          */
         public function notLogedin()
         {
@@ -151,6 +167,8 @@
         }
 
         /**
+         * It will check whether the user is logged in or not and a boolean value will be returned
+         *
          * @return bool
          */
         public function LogedinBool()
@@ -162,6 +180,14 @@
             }
         }
 
+        /**
+         * It will update the password of the user
+         *
+         * @param $userid
+         * @param $oldPassword
+         * @param $newPassword
+         * @param $passRep
+         */
         public function passUpdate($userid, $oldPassword, $newPassword, $passRep)
         {
             $oldPassword = md5($this->dataEscape($oldPassword));
@@ -189,6 +215,14 @@
 
         }
 
+        /**
+         * It will update the email of the user
+         *
+         * @param $userid
+         * @param $oldEmail
+         * @param $newEmail
+         * @param $password
+         */
         public function emailUpdate($userid, $oldEmail, $newEmail, $password)
         {
             $oldEmail = $this->dataEscape($oldEmail);
@@ -212,6 +246,15 @@
 
         }
 
+        /**
+         * If will add a host to the database
+         *
+         * @param $userid
+         * @param $hostname
+         * @param $host
+         * @param $port
+         * @param $ispublic
+         */
         public function addHost($userid, $hostname, $host, $port, $ispublic)
         {
             $hostname = $this->dataEscape($hostname);
@@ -241,6 +284,9 @@
 
         }
 
+        /**
+         * It will select all public hosts
+         */
         public function selectPublicHost()
         {
             $string = "SELECT * FROM hosts WHERE ispublic=1";
@@ -265,11 +311,16 @@
                 }
                 echo "</table>";
             } else {
-                Main::setMessage("host.php", mysql_error(), "alert-error");
+                Main::setMessage("index.php", mysql_error(), "alert-error");
             }
 
         }
 
+        /**
+         * It will select all private hosts
+         *
+         * @param $userid
+         */
         public function selectPrivateHost($userid)
         {
             $string = "SELECT * FROM hosts WHERE user_id='" . $userid . "'";
@@ -292,17 +343,23 @@
                     echo "<td>" . htmlspecialchars($row['host']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['port']) . "</td>";
                     echo Check::checkServer($row['host'], $row['port']) ? "<td style=\"text-align: center;\"><i class=\"icon-ok\"></i></td>" : "<td style=\"text-align: center;\"><i class=\"icon-remove\"></i></td>";
-                    echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini btn-info \" href=\"ping.php?host=".$row['host']."&port=".$row['port']."&count=4\"><i class=\"icon-signal\"></i> Ping</a></td>";
+                    echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini btn-info \" href=\"ping.php?host=" . $row['host'] . "&port=" . $row['port'] . "&count=4\"><i class=\"icon-signal\"></i> Ping</a></td>";
                     echo "<td style=\"text-align:center;\"><a class=\"btn btn-mini \" onclick=\"deleteFunction(" . $row['id'] . ")\"><i style=\"margin-top: 1px;\" class=\"icon-remove-circle\"></i></a></td>";
                     echo "</tr>";
                 }
                 echo "</table>";
             } else {
-                Main::setMessage("host.php", mysql_error(), "alert-error");
+                Main::setMessage("index.php", mysql_error(), "alert-error");
             }
 
         }
 
+        /**
+         * It will delete a specific host
+         *
+         * @param $userid
+         * @param $hostid
+         */
         public function hostDelete($userid, $hostid)
         {
             $string = "DELETE FROM hosts WHERE id=" . $hostid . " AND user_id=" . $userid . "";

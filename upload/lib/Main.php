@@ -5,9 +5,11 @@
         /**
          * The function will return the page title depends on the file name
          *
+         * @param $name
+         *
          * @return string
          */
-        static public function pageTitle()
+        static public function pageTitle($name)
         {
             $page = $_SERVER['PHP_SELF'];
             $string = strrchr($page, '/');
@@ -16,19 +18,25 @@
 
             switch ($page) {
                 case "index.php":
-                    return "HostChecker - Homepage";
+                    return $name ." - Homepage";
+                    break;
+                case "ping.php":
+                    return  $name ." - Ping";
                     break;
                 case "host.php":
-                    return "HostChecker - Add Host";
+                    return $name . " - Add Host";
                     break;
                 case "settings.php":
-                    return "HostChecker - Member Settings";
+                    return $name . " - Member Settings";
                     break;
                 case "register.php":
-                    return "HostChecker - Register";
+                    return $name . " - Register";
                     break;
                 case "login.php":
-                    return "HostChecker - Login";
+                    return $name . " - Login";
+                    break;
+                default :
+                    return $name;
                     break;
             }
         }
@@ -39,6 +47,7 @@
          * @param $page
          * @param $errString
          * @param $status
+         *
          * @return redict
          */
         static public function setMessage($page, $errString, $status = "")

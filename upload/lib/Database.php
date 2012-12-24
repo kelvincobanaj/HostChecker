@@ -17,7 +17,7 @@
          * @var mixed $connection
          * @var mixed $dbselect
          */
-        private $connection;
+        private $_connection;
         private $dbselect;
 
         /**
@@ -39,12 +39,12 @@
          */
         public function connect()
         {
-            $this->connection = mysql_connect($this->_localhost, $this->_dbuser, $this->_dbpass);
+            $this->_connection = mysql_connect($this->_localhost, $this->_dbuser, $this->_dbpass);
 
-            if (!$this->connection) {
+            if (!$this->_connection) {
                 return false;
             } else {
-                $this->dbselect = mysql_select_db($this->_database, $this->connection);
+                $this->dbselect = mysql_select_db($this->_database, $this->_connection);
 
                 if (!$this->dbselect) {
                     return false;

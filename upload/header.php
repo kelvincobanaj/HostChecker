@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo Main::pageTitle(); ?></title>
+    <title><?php echo Main::pageTitle($scriptName); ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script>
         function deleteFunction(postid) {
