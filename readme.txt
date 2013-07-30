@@ -5,7 +5,7 @@ Website: www.sadiqevani.com
 Demo: www.sadiqevani.com/hostchecker/
 
 Name: HostChecker
-Version: 1.1
+Version: 1.2
 
 == Description ==
 

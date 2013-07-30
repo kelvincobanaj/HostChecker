@@ -1,8 +1,6 @@
 <?php
-    require_once 'config.php';
+	require_once 'config.php';
 
-    session_destroy();
+	session_destroy();
 
-    Main::setMessage("index.php", "You have logged out!", "alert-info");
-
-?>
+	Main::setMessage( "index.php", "You have logged out!", "alert-info" );
