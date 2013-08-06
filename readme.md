@@ -1,13 +1,15 @@
 HostChecker
 ===========
 
-Author: Sadi Qevani
-Email: sadiqevani@dot.al
-Website: www.sadiqevani.com
-Demo: www.sadiqevani.com/hostchecker/
+Author: Sadi Qevani  
 
-Name: HostChecker
-Version: 1.2
+Email: sadiqevani@dot.al  
+Website: www.sadiqevani.com  
+Demo: www.sadiqevani.com/hostchecker/  
+  
+  
+Name: HostChecker  
+Version: 1.2  
 
 Description
 -----------
